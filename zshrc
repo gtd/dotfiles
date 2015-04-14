@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 setopt autocd
-cdpath=(~/work ~/xplr)
+cdpath=(~/work ~/xplr ~/work/mubi)
 
 # Inspired by, and borrowing from https://github.com/rtomayko/dotfiles
 
