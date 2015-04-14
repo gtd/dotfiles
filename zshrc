@@ -1,2 +1,183 @@
+# ----------------------------------------------------------------------
+# LEGACY OH-MY-ZSH
+# ----------------------------------------------------------------------
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="nanotech"
+plugins=(brew gem github rake)
+source $ZSH/oh-my-zsh.sh
+
+
 setopt autocd
 cdpath=(~/work ~/xplr)
+
+# Inspired by, and borrowing from https://github.com/rtomayko/dotfiles
+
+: ${HOME=~}
+: ${LOGNAME=$(id -un)}
+: ${UNAME=$(uname)}
+
+export EDITOR=vim
+export GEM_EDITOR=mvim # For gem-open gem which must be installed
+
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
+
+# Usage: puniq [<path>]
+# Remove duplicate entries from a PATH style value while retaining
+# the original order. Use PATH if no <path> is given.
+#
+# Example:
+#   $ puniq /usr/bin:/usr/local/bin:/usr/bin
+#   /usr/bin:/usr/local/bin
+puniq () {
+    echo "$1" |tr : '\n' |nl |sort -u -k 2,2 |sort -n |
+    cut -f 2- |tr '\n' : |sed -e 's/:$//' -e 's/^://'
+}
+
+PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+PATH="/usr/local/bin:$PATH"
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+PATH="$HOME/.rbenv/bin:$PATH"
+# This also must be added after rbenv init in .zshrc
+PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
+
+PATH=$(puniq $PATH)
+
+# ----------------------------------------------------------------------
+# ENVIRONMENT CONFIGURATION
+# ----------------------------------------------------------------------
+
+# detect interactive shell
+case "$-" in
+    *i*) INTERACTIVE=yes ;;
+    *)   unset INTERACTIVE ;;
+esac
+
+# detect login shell
+case "$0" in
+    -*) LOGIN=yes ;;
+    *)  unset LOGIN ;;
+esac
+
+# enable en_US locale w/ utf-8 encodings if not already configured
+: ${LANG:="en_US.UTF-8"}
+: ${LANGUAGE:="en"}
+: ${LC_CTYPE:="en_US.UTF-8"}
+: ${LC_ALL:="en_US.UTF-8"}
+export LANG LANGUAGE LC_CTYPE LC_ALL
+
+
+# ----------------------------------------------------------------------
+# ALIASES / FUNCTIONS
+# ----------------------------------------------------------------------
+alias git='nocorrect git'
+alias tmdiff='cd /Volumes/Time\ Machine\ Backups/Backups.backupdb/g-abbatoir && timedog -d 7 -m 100k -ls'
+
+alias bx='bundle exec'
+alias r='bundle exec rails'
+alias rk='bundle exec rake'
+
+function rsv {
+  if [ -e .rails_dev ]; then
+    port=$(ruby -ryaml -e 'puts YAML.load_file(".rails_dev")["port"]')
+  else
+    port=3000
+  fi
+
+  if bundle exec rails -v | egrep -q '2.[0-9]+.[0-9]+'; then
+    script/server -u -p$port
+  elif gem list | grep -q mongrel; then
+    script/rails server -u -p$port
+  else
+    bx thin start -p $port
+  fi
+}
+
+function gitkbr {
+  gitk $1 --not $(git show-ref --heads | cut -d' ' -f2 | grep -v "^refs/heads/$1")
+}
+
+function gitkta {
+  gitk $1 --not refs/heads/master
+}
+
+function tunnel {
+  ssh -nNT4 -o "ServerAliveInterval 0" -R *:$1:localhost:$1 prg
+}
+
+
+# ----------------------------------------------------------------------
+# GEM BUILDS OX X
+# ----------------------------------------------------------------------
+# Fix gem builds, eg. http://stackoverflow.com/questions/26457083/gem-install-mysql2-v-0-3-11-not-working-on-yosemite
+export MACOSX_DEPLOYMENT_TARGET=10.9
+
+
+# Non-bash-compatible scripts below ==========================
+function rt {
+  if [ $# -le 1 ] ; then
+    echo Running: ruby -Itest $1
+    ruby -Itest $1
+  else
+    p2=$2
+    param=$p2[0,5]
+    if [ $param = 'test/' ] ; then # Assumes all test files are in test/**
+      while [ "$1" != "" ]; do
+        if [ ! $test_files ]; then
+          local test_files=$1
+        else
+          test_files="$test_files,$1"
+        fi
+        shift
+      done
+      echo Running: rake TEST_FILES=$test_files # Note this requires custom Rakefile http://stackoverflow.com/questions/6656935/how-to-run-multiple-rails-unit-tests-at-once
+      rake TEST_FILES=$test_files
+    else
+      regex=/$argv[2,-1]/
+      echo "Running: ruby -Itest $1 '$regex'"
+      ruby -Itest $1 -n $regex
+    fi
+  fi
+}
+
+function brt {
+  while [ "$1" != "" ]; do
+    if [ ! $test_files ]; then
+      local test_files=$1
+    else
+      test_files="$test_files,$1"
+    fi
+    shift
+  done
+  echo Running: bin/rake TEST_FILES=$test_files
+  bin/rake TEST_FILES=$test_files
+}
+
+
+function hl {
+  if (( $# != 1 ))
+  then
+    echo usage: hl name;
+  else
+    highlight -O rtf $1 --line-numbers --font-size 24 --font Inconsolata --style solarized-dark | pbcopy
+  fi
+}
+
+# Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
+#bindkey -v
+
+#bindkey ^r history-incremental-search-backward
+
+# rbenv
+eval "$(rbenv init -)"
+
+# This needs to be after rbenv paths
+PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
+
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
+
+# MUBI-specific things to be sourced
+source ~/.mubi.zsh

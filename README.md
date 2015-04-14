@@ -10,6 +10,13 @@ This is my take on dotfiles.
 * Portability where possible
 * Know thy tools
 
+## TODO
+
+* Look at replacing oh-my-zsh with prezto
+* Split things into topical areas like Holman
+* Migrate from pathogen to vundle
+* Implement a place for secrets
+
 ## Inspiration & Acknowledgements
 
 * [Robby Russell](https://github.com/robbyrussell/oh-my-zsh)
