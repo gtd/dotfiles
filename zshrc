@@ -94,6 +94,10 @@ function gitkta {
   gitk $1 --not refs/heads/master
 }
 
+function st {
+  open ${1-.} -a SourceTree
+}
+
 
 # ----------------------------------------------------------------------
 # RUBY
