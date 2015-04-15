@@ -22,7 +22,6 @@ cdpath=(~/work ~/xplr ~/work/mubi)
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
 : ${EDITOR=vim}
-: ${GEM_EDITOR=mvim} # For gem-open gem which must be installed
 
 
 # ----------------------------------------------------------------------
@@ -106,8 +105,9 @@ alias bx='bundle exec'
 alias r='bundle exec rails'
 alias rk='bundle exec rake'
 
+: ${GEM_EDITOR=mvim} # For gem-open gem which must be installed
 # Fix gem builds, eg. http://stackoverflow.com/questions/26457083/gem-install-mysql2-v-0-3-11-not-working-on-yosemite
-export MACOSX_DEPLOYMENT_TARGET=10.9
+: ${MACOSX_DEPLOYMENT_TARGET=10.9}
 
 
 # ----------------------------------------------------------------------
