@@ -7,17 +7,23 @@ plugins=(brew gem github rake)
 source $ZSH/oh-my-zsh.sh
 
 
+# ----------------------------------------------------------------------
+# GENERAL ZSH CONFIG
+# ----------------------------------------------------------------------
 setopt autocd
 cdpath=(~/work ~/xplr ~/work/mubi)
 
-# Inspired by, and borrowing from https://github.com/rtomayko/dotfiles
+# Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
+#bindkey -v
+#bindkey ^r history-incremental-search-backward
 
+# Inspired by, and borrowing from https://github.com/rtomayko/dotfiles
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
+: ${EDITOR=vim}
+: ${GEM_EDITOR=mvim} # For gem-open gem which must be installed
 
-export EDITOR=vim
-export GEM_EDITOR=mvim # For gem-open gem which must be installed
 
 # ----------------------------------------------------------------------
 # PATH
@@ -44,6 +50,7 @@ PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 
 PATH=$(puniq $PATH)
 
+
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
 # ----------------------------------------------------------------------
@@ -69,15 +76,39 @@ export LANG LANGUAGE LC_CTYPE LC_ALL
 
 
 # ----------------------------------------------------------------------
-# ALIASES / FUNCTIONS
+# TIME MACHINE
 # ----------------------------------------------------------------------
-alias git='nocorrect git'
 alias tmdiff='cd /Volumes/Time\ Machine\ Backups/Backups.backupdb/g-abbatoir && timedog -d 7 -m 100k -ls'
 
+
+# ----------------------------------------------------------------------
+# GIT
+# ----------------------------------------------------------------------
+alias git='nocorrect git'
+
+function gitkbr {
+  gitk $1 --not $(git show-ref --heads | cut -d' ' -f2 | grep -v "^refs/heads/$1")
+}
+
+function gitkta {
+  gitk $1 --not refs/heads/master
+}
+
+
+# ----------------------------------------------------------------------
+# RUBY
+# ----------------------------------------------------------------------
 alias bx='bundle exec'
 alias r='bundle exec rails'
 alias rk='bundle exec rake'
 
+# Fix gem builds, eg. http://stackoverflow.com/questions/26457083/gem-install-mysql2-v-0-3-11-not-working-on-yosemite
+export MACOSX_DEPLOYMENT_TARGET=10.9
+
+
+# ----------------------------------------------------------------------
+# RAILS
+# ----------------------------------------------------------------------
 function rsv {
   if [ -e .rails_dev ]; then
     port=$(ruby -ryaml -e 'puts YAML.load_file(".rails_dev")["port"]')
@@ -94,27 +125,6 @@ function rsv {
   fi
 }
 
-function gitkbr {
-  gitk $1 --not $(git show-ref --heads | cut -d' ' -f2 | grep -v "^refs/heads/$1")
-}
-
-function gitkta {
-  gitk $1 --not refs/heads/master
-}
-
-function tunnel {
-  ssh -nNT4 -o "ServerAliveInterval 0" -R *:$1:localhost:$1 prg
-}
-
-
-# ----------------------------------------------------------------------
-# GEM BUILDS OX X
-# ----------------------------------------------------------------------
-# Fix gem builds, eg. http://stackoverflow.com/questions/26457083/gem-install-mysql2-v-0-3-11-not-working-on-yosemite
-export MACOSX_DEPLOYMENT_TARGET=10.9
-
-
-# Non-bash-compatible scripts below ==========================
 function rt {
   if [ $# -le 1 ] ; then
     echo Running: ruby -Itest $1
@@ -155,6 +165,9 @@ function brt {
 }
 
 
+# ----------------------------------------------------------------------
+# CODE HIGHLIGHTING
+# ----------------------------------------------------------------------
 function hl {
   if (( $# != 1 ))
   then
@@ -164,20 +177,29 @@ function hl {
   fi
 }
 
-# Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
-#bindkey -v
 
-#bindkey ^r history-incremental-search-backward
-
-# rbenv
+# ----------------------------------------------------------------------
+# RBENV
+# ----------------------------------------------------------------------
 eval "$(rbenv init -)"
 
+
+# ----------------------------------------------------------------------
+# CHEF-DK
+# ----------------------------------------------------------------------
 # This needs to be after rbenv paths
 PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 
+
+# ----------------------------------------------------------------------
+# PERL
+# ----------------------------------------------------------------------
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
 
-# MUBI-specific things to be sourced
+
+# ----------------------------------------------------------------------
+# MUBI
+# ----------------------------------------------------------------------
 source ~/.mubi.zsh
