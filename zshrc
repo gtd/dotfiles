@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 # GENERAL ZSH CONFIG
 # ----------------------------------------------------------------------
 setopt autocd
-cdpath=(~/work ~/xplr ~/work/mubi)
+cdpath=(~/xplr ~/work ~/work/mubi ~/work/mubi/vagrant-code)
 
 # Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
 #bindkey -v
