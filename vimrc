@@ -65,6 +65,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 nnoremap <Space> @q
 
+vnoremap <leader>s d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+nnoremap <leader>s :call setline('.', join(sort(split(getline('.'), ' ')), " "))<CR>
+
 au BufRead,BufNewFile *.thor set filetype=ruby
 
 " vim-airline config
