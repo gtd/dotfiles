@@ -206,4 +206,12 @@ PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
 # ----------------------------------------------------------------------
 # MUBI
 # ----------------------------------------------------------------------
+function ctoid() {
+  ruby -e 'require "app_locale"; puts ARGV.map{ |c| AppLocale::Country.id_from_code(c.upcase) || "INVALID_CODE(#{c})" }' $@
+}
+
+function ctoidl() {
+  ruby -e 'require "app_locale"; puts ARGV.map{ |c| AppLocale::Country.id_from_code(c.upcase) || "INVALID_CODE(#{c})" }' $@ | paste -sd',' -
+}
+
 source ~/.mubi.zsh
