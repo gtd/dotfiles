@@ -19,6 +19,8 @@ coverage
 --ignore-dir
 tmp/cache
 --ignore-dir
+tmp
+--ignore-dir
 log
 --ignore-dir
 .rsync_cache
