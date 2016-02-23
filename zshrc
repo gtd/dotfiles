@@ -215,3 +215,13 @@ function ctoidl() {
 }
 
 source ~/.mubi.zsh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/gtd/.travis/travis.sh ] && source /Users/gtd/.travis/travis.sh
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
