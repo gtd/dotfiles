@@ -26,3 +26,5 @@ log
 .rsync_cache
 --ignore-dir
 tmp_storage
+--ignore-dir
+public/assets
