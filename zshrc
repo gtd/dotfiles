@@ -225,3 +225,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # NVM
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+# iTerm2 Shell Integration https://iterm2.com/shell_integration.html
+source ~/.iterm2_shell_integration.`basename $SHELL`
