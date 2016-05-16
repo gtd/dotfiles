@@ -28,3 +28,5 @@ log
 tmp_storage
 --ignore-dir
 public/assets
+--ignore-dir
+.bundle
