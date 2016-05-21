@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 # GENERAL ZSH CONFIG
 # ----------------------------------------------------------------------
 setopt autocd
-cdpath=(~/xplr ~/work ~/work/mubi ~/work/mubi/vagrant-code ~/work/busbk)
+cdpath=(~/xplr ~/work ~/work/mubi ~/work/mubi/vagrant-code)
 
 # Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
 #bindkey -v
@@ -216,6 +216,16 @@ function ctoidl() {
 
 source ~/.mubi.zsh
 
+
+# ----------------------------------------------------------------------
+# BUSBK
+# ----------------------------------------------------------------------
+alias bb='cd ~/work/busbk/busbk && export EYRC=~/.eyrc-bnk'
+
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
