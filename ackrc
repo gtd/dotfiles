@@ -30,3 +30,5 @@ tmp_storage
 public/assets
 --ignore-dir
 .bundle
+--ignore-dir
+.virtualenv
