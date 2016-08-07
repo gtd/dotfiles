@@ -36,7 +36,7 @@ set incsearch
 set showmatch
 set hlsearch
 set wrap
-set textwidth=120
+set textwidth=80
 set formatoptions=qrn1
 set list
 set listchars=tab:▸\ ,eol:¬

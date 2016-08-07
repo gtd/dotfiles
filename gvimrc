@@ -1,4 +1,4 @@
-set colorcolumn=120
+set colorcolumn=80
 set relativenumber
 set cursorline
 
