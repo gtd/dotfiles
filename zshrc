@@ -21,7 +21,9 @@ cdpath=(~/xplr ~/work ~/work/mubi ~/work/mubi/vagrant-code)
 : ${HOME=~}
 : ${LOGNAME=$(id -un)}
 : ${UNAME=$(uname)}
-: ${EDITOR=vim}
+#: ${EDITOR=vim}
+# The above did not work for eb config, why?
+export EDITOR=vim
 
 
 # ----------------------------------------------------------------------
@@ -244,3 +246,4 @@ source $(brew --prefix nvm)/nvm.sh
 
 # iTerm2 Shell Integration https://iterm2.com/shell_integration.html
 source ~/.iterm2_shell_integration.`basename $SHELL`
+
