@@ -208,7 +208,9 @@ PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
 # ----------------------------------------------------------------------
 # AMPLI.FI
 # ----------------------------------------------------------------------
-alias amp='cd ~/TheHobby'
+alias amp='cd ~/work/ampl'
+alias ampb='cd ~/work/ampl/joni-backend'
+alias ampf='cd ~/work/ampl/joni-web'
 
 
 # ----------------------------------------------------------------------
