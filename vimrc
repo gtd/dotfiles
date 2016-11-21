@@ -11,6 +11,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set smarttab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -80,3 +81,7 @@ let @p="o[#]" " Insert a Pivotal story git commit message hook (can't paste fro
 
 " Reload .vimrc on write automatically
 au! BufWritePost .vimrc source %
+
+" Allow per-project .vimrc https://andrew.stwrt.ca/posts/project-specific-vimrc/
+set exrc
+set secure
