@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 # GENERAL ZSH CONFIG
 # ----------------------------------------------------------------------
 setopt autocd
-cdpath=(~/xplr ~/work ~/work/mubi ~/work/mubi/vagrant-code)
+cdpath=(~/xplr ~/work)
 
 # Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
 #bindkey -v
@@ -203,29 +203,6 @@ PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
-
-
-# ----------------------------------------------------------------------
-# AMPLI.FI
-# ----------------------------------------------------------------------
-alias amp='cd ~/work/ampl'
-alias ampb='cd ~/work/ampl/joni-backend'
-alias ampf='cd ~/work/ampl/joni-web'
-alias lit='cd ~/work/ampl/litfm-web'
-
-
-# ----------------------------------------------------------------------
-# MUBI
-# ----------------------------------------------------------------------
-function ctoid() {
-  ruby -e 'require "app_locale"; puts ARGV.map{ |c| AppLocale::Country.id_from_code(c.upcase) || "INVALID_CODE(#{c})" }' $@
-}
-
-function ctoidl() {
-  ruby -e 'require "app_locale"; puts ARGV.map{ |c| AppLocale::Country.id_from_code(c.upcase) || "INVALID_CODE(#{c})" }' $@ | paste -sd',' -
-}
-
-source ~/.mubi.zsh
 
 
 # ----------------------------------------------------------------------
