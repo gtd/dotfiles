@@ -227,3 +227,7 @@ source $(brew --prefix nvm)/nvm.sh
 # iTerm2 Shell Integration https://iterm2.com/shell_integration.html
 source ~/.iterm2_shell_integration.`basename $SHELL`
 
+# Add local extensions in .zshrc_local/
+for file in .zshrc_local/*.zsh; do
+  source $file
+done
