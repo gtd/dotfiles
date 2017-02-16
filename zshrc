@@ -16,6 +16,8 @@ cdpath=(~/xplr ~/work)
 # Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
 #bindkey -v
 #bindkey ^r history-incremental-search-backward
+bindkey ^f forward-word
+bindkey ^b backward-word
 
 # Inspired by, and borrowing from https://github.com/rtomayko/dotfiles
 : ${HOME=~}
