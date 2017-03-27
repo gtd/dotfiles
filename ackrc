@@ -36,3 +36,5 @@ public/assets
 build
 --ignore-dir
 .build
+--ignore-dir
+_book
