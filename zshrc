@@ -230,6 +230,6 @@ source $(brew --prefix nvm)/nvm.sh
 source ~/.iterm2_shell_integration.`basename $SHELL`
 
 # Add local extensions in .zshrc_local/
-for file in .zshrc_local/*.zsh; do
+for file in .zshrc_local/*.zsh(.N); do
   source $file
 done
