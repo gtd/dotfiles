@@ -6,7 +6,7 @@ filetype plugin indent on
 syntax on
 
 set nocompatible
-set modelines=0
+set modelines=2
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
