@@ -54,6 +54,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <F2> :NERDTreeMirror<cr>
 nnoremap <F3> :NERDTreeToggle<cr>
 nnoremap <leader>r :NERDTreeFind<cr>
+nnoremap <leader>f :Autoformat<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
