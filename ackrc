@@ -38,3 +38,9 @@ build
 .build
 --ignore-dir
 _book
+--ignore-dir
+.terraform
+--ignore-file
+ext:tfstate
+--ignore-file
+ext:backup
