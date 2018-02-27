@@ -238,3 +238,9 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 for file in .zshrc_local/*.zsh(.N); do
   source $file
 done
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/gabedasilveira/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/gabedasilveira/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/gabedasilveira/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gabedasilveira/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
