@@ -239,6 +239,9 @@ for file in .zshrc_local/*.zsh(.N); do
   source $file
 done
 
+# AWS CLI Autocompletion
+if [ -f '/usr/local/bin/aws_zsh_completer.sh' ]; then source '/usr/local/bin/aws_zsh_completer.sh'; fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gabedasilveira/work/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/gabedasilveira/work/google-cloud-sdk/path.zsh.inc'; fi
 
