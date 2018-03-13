@@ -20,4 +20,4 @@ function! ToggleLineNumberFormat()
   endif
 endfunction
 
-set guifont=Anonymice\ Powerline:h14
+set guifont=Anonymous\ Pro\ for\ Powerline:h14
