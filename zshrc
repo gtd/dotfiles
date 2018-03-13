@@ -50,6 +50,8 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 PATH="$HOME/.rbenv/bin:$PATH"
 # This also must be added after rbenv init in .zshrc
 PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
+# Add homebrew python3 defaults
+PATH=/usr/local/opt/python/libexec/bin:$PATH
 
 PATH=$(puniq $PATH)
 
