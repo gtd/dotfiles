@@ -48,7 +48,6 @@ set wildignore=tmp/**
 
 let mapleader = ","
 
-nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader><space> :noh<cr>
 nnoremap <F2> :NERDTreeMirror<cr>
@@ -71,6 +70,10 @@ vnoremap <leader>s d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR
 nnoremap <leader>s :call setline('.', join(sort(split(getline('.'), ' ')), " "))<CR>
 
 au BufRead,BufNewFile *.thor set filetype=ruby
+
+" CtrlP
+let g:ctrlp_custom_ignore = 'node_modules'
+
 
 " vim-airline config
 let g:airline_powerline_fonts = 1 " See font setting in .gvimrc

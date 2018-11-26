@@ -14,6 +14,8 @@ actionscript=.as
 cucumber=.feature
 --type-set
 coffee=.coffee
+--type-set
+tfstate=.tfstate
 --ignore-dir
 coverage
 --ignore-dir
@@ -38,9 +40,8 @@ build
 .build
 --ignore-dir
 _book
---ignore-dir
-.terraform
---ignore-file
-ext:tfstate
 --ignore-file
 ext:backup
+--ignore-file
+match:.bundle.js
+
