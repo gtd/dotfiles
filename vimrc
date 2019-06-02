@@ -72,8 +72,12 @@ nnoremap <leader>s :call setline('.', join(sort(split(getline('.'), ' ')), " "))
 au BufRead,BufNewFile *.thor set filetype=ruby
 
 " CtrlP
-let g:ctrlp_custom_ignore = 'node_modules'
-
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|node_modules\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+let g:ctrlp_max_files = 20000
+let g:ctrlp_max_depth = 40
 
 " vim-airline config
 let g:airline_powerline_fonts = 1 " See font setting in .gvimrc

@@ -44,4 +44,6 @@ _book
 ext:backup
 --ignore-file
 match:.bundle.js
+--ignore-file
+match:.tfstate
 
