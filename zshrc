@@ -3,9 +3,8 @@
 # ----------------------------------------------------------------------
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nanotech"
-plugins=(brew gem github rake)
+plugins=()
 source $ZSH/oh-my-zsh.sh
-
 
 # ----------------------------------------------------------------------
 # GENERAL ZSH CONFIG
