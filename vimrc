@@ -19,6 +19,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'elixir-lang/vim-elixir'
 Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 syntax on
