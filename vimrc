@@ -1,7 +1,17 @@
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on
+"filetype off
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf'
+Plug 'vim-python/python-syntax'
+call plug#end()
 
 syntax on
 
