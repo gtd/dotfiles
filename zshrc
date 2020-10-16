@@ -249,3 +249,10 @@ if [ -f '/Users/gabedasilveira/work/google-cloud-sdk/path.zsh.inc' ]; then sourc
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gabedasilveira/work/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gabedasilveira/work/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Java for Treehouse
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Airlab
+source ~/.airlab/shellhelper.sh
