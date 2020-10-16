@@ -1,16 +1,25 @@
-"filetype off
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"filetype plugin indent on
+filetype off
+filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf'
-Plug 'vim-python/python-syntax'
+Plug 'gtd/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-markdown'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Lokaltog/powerline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/gist-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'elixir-lang/vim-elixir'
+Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 syntax on

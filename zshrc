@@ -3,9 +3,8 @@
 # ----------------------------------------------------------------------
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="nanotech"
-plugins=(brew gem github rake)
+plugins=()
 source $ZSH/oh-my-zsh.sh
-
 
 # ----------------------------------------------------------------------
 # GENERAL ZSH CONFIG
@@ -52,6 +51,8 @@ PATH="$HOME/.rbenv/bin:$PATH"
 PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 # Add homebrew python3 defaults
 PATH=/usr/local/opt/python/libexec/bin:$PATH
+# Add QT5.5 from homebrew tap https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#macOS-catalina-1015
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
 PATH=$(puniq $PATH)
 
@@ -230,8 +231,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [ -f /Users/gtd/.travis/travis.sh ] && source /Users/gtd/.travis/travis.sh
 
 # NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#export NVM_DIR=~/.nvm
+#source $(brew --prefix nvm)/nvm.sh
 
 # iTerm2 Shell Integration https://iterm2.com/shell_integration.html
 source ~/.iterm2_shell_integration.`basename $SHELL`
