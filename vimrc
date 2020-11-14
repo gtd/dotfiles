@@ -20,6 +20,7 @@ Plug 'bling/vim-airline'
 Plug 'elixir-lang/vim-elixir'
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-rhubarb'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 syntax on
