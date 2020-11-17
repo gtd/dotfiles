@@ -13,7 +13,6 @@
   quotepath = false
   trustctime = false
 	precomposeunicode = true
-	sparseCheckout = true
 [merge]
   tool = mvim
   conflictstyle = diff3
