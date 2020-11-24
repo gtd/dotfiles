@@ -51,8 +51,6 @@ PATH="$HOME/.rbenv/bin:$PATH"
 PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 # Add homebrew python3 defaults
 PATH=/usr/local/opt/python/libexec/bin:$PATH
-# Add QT5.5 from homebrew tap https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#macOS-catalina-1015
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
 PATH=$(puniq $PATH)
 
