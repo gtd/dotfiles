@@ -18,6 +18,18 @@ bindkey ^b backward-word
 # The above did not work for eb config, why?
 export EDITOR=vim
 
+# Prompt
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+zstyle ':vcs_info:*' enable git
+
+PROMPT='%F{green}%2c%F{blue} [%f '
+RPROMPT='$vcs_info_msg_0_ %F{blue}] %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
+
+
 
 # ----------------------------------------------------------------------
 # PATH
