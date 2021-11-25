@@ -44,6 +44,9 @@ PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 # Add homebrew python3 defaults
 PATH=/usr/local/opt/python/libexec/bin:$PATH
 
+# Set up homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 PATH=$(puniq $PATH)
 
 
