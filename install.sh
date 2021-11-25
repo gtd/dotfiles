@@ -2,7 +2,6 @@
 #
 # - Install Mac OS Command Line Tools
 # - Install Homebrew
-# - Install oh-my-zsh
 
 cd "$(dirname "$0")"
 DOTFILES_ROOT=$(pwd)
