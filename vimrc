@@ -113,3 +113,7 @@ au! BufWritePost .vimrc source %
 " Allow per-project .vimrc https://andrew.stwrt.ca/posts/project-specific-vimrc/
 set exrc
 set secure
+
+if has("gui_vimr")
+  source ~/.gvimrc
+endif
