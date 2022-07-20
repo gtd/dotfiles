@@ -47,7 +47,7 @@ puniq () {
     cut -f 2- |tr '\n' : |sed -e 's/:$//' -e 's/^://'
 }
 
-PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+PATH="~/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:$PATH"
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 PATH="$HOME/.rbenv/bin:$PATH"
