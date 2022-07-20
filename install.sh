@@ -13,8 +13,8 @@ ln -sv $DOTFILES_ROOT/gvimrc ~/.gvimrc
 ln -sv $DOTFILES_ROOT/gitconfig ~/.gitconfig
 ln -sv $DOTFILES_ROOT/gitignore_global ~/.gitignore_global
 
-mkdir -p ~/.config
-ln -sv $DOTFILES_ROOT/init.vim ~/.config/init.vim
+mkdir -p ~/.config/nvim
+ln -sv $DOTFILES_ROOT/nvim/init.vim ~/.config/init.vim
 
 mkdir -p ~/.vim/autoload
 ln -sv $DOTFILES_ROOT/plug.vim ~/.vim/autoload/plug.vim
