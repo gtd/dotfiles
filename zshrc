@@ -50,14 +50,12 @@ puniq () {
 PATH="~/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:$PATH"
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
-PATH="$HOME/.rbenv/bin:$PATH"
-# This also must be added after rbenv init in .zshrc
-PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
-# Add homebrew python3 defaults
-PATH=/usr/local/opt/python/libexec/bin:$PATH
 
 # Set up homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Set up rbenv
+eval "$(rbenv init - zsh)"
 
 PATH=$(puniq $PATH)
 
@@ -119,7 +117,6 @@ alias rk='bundle exec rake'
 
 : ${GEM_EDITOR=mvim} # For gem-open gem which must be installed
 # Fix gem builds, eg. http://stackoverflow.com/questions/26457083/gem-install-mysql2-v-0-3-11-not-working-on-yosemite
-: ${MACOSX_DEPLOYMENT_TARGET=10.9}
 
 
 # ----------------------------------------------------------------------
@@ -195,51 +192,8 @@ function hl {
 
 
 # ----------------------------------------------------------------------
-# RBENV
-# ----------------------------------------------------------------------
-eval "$(rbenv init -)"
-
-
-# ----------------------------------------------------------------------
-# CHEF-DK
-# ----------------------------------------------------------------------
-# This needs to be after rbenv paths
-PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
-
-
-# ----------------------------------------------------------------------
-# PERL
-# ----------------------------------------------------------------------
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
-PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB; export PERL5LIB;
-
-
-# ----------------------------------------------------------------------
-# BUSBK
-# ----------------------------------------------------------------------
-alias bb='cd ~/work/busbk'
-
-
-# ----------------------------------------------------------------------
-# MASKMAIL
-# ----------------------------------------------------------------------
-alias mm='cd ~/work/maskmail'
-
-
-# ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# added by travis gem
-[ -f /Users/gtd/.travis/travis.sh ] && source /Users/gtd/.travis/travis.sh
-
-# NVM
-#export NVM_DIR=~/.nvm
-#source $(brew --prefix nvm)/nvm.sh
-
 # iTerm2 Shell Integration https://iterm2.com/shell_integration.html
 source ~/.iterm2_shell_integration.`basename $SHELL`
 
@@ -252,7 +206,10 @@ done
 if [ -f '/usr/local/bin/aws_zsh_completer.sh' ]; then source '/usr/local/bin/aws_zsh_completer.sh'; fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/gtd/work/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/gtd/work/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f ~/work/google-cloud-sdk/path.zsh.inc ]; then source ~/work/google-cloud-sdk/path.zsh.inc; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/gtd/work/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/gtd/work/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f ~/work/google-cloud-sdk/completion.zsh.inc ]; then source ~/work/google-cloud-sdk/completion.zsh.inc; fi
+
+# Airlab setup
+if [ -f ~/.airlab/shellhelper.sh]; then source ~/.airlab/shellhelper.sh; fi
