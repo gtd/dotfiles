@@ -212,4 +212,5 @@ if [ -f ~/work/google-cloud-sdk/path.zsh.inc ]; then source ~/work/google-cloud-
 if [ -f ~/work/google-cloud-sdk/completion.zsh.inc ]; then source ~/work/google-cloud-sdk/completion.zsh.inc; fi
 
 # Airlab setup
-if [ -f ~/.airlab/shellhelper.sh]; then source ~/.airlab/shellhelper.sh; fi
+if [ -f ~/.airlab/shellhelper.sh ]; then source ~/.airlab/shellhelper.sh; fi
+
