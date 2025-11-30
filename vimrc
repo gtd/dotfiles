@@ -3,7 +3,6 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 Plug 'mileszs/ack.vim'
-Plug 'gtd/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'

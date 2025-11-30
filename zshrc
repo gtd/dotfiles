@@ -207,16 +207,3 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 for file in .zshrc_local/*.zsh(.N); do
   source $file
 done
-
-# AWS CLI Autocompletion
-if [ -f '/usr/local/bin/aws_zsh_completer.sh' ]; then source '/usr/local/bin/aws_zsh_completer.sh'; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/work/google-cloud-sdk/path.zsh.inc ]; then source ~/work/google-cloud-sdk/path.zsh.inc; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f ~/work/google-cloud-sdk/completion.zsh.inc ]; then source ~/work/google-cloud-sdk/completion.zsh.inc; fi
-
-# Airlab setup
-if [ -f ~/.airlab/shellhelper.sh ]; then source ~/.airlab/shellhelper.sh; fi
-
