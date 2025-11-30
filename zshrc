@@ -2,7 +2,7 @@
 # GENERAL ZSH CONFIG
 # ----------------------------------------------------------------------
 setopt autocd
-cdpath=(~/xplr ~/work)
+cdpath=(~/xplr ~/work ~/repos)
 
 # Vi bindings http://www.cs.elte.hu/zsh-manual/zsh_14.html
 #bindkey -v
@@ -177,6 +177,12 @@ function brt {
   bin/rake TEST_FILES=$test_files
 }
 
+
+# ----------------------------------------------------------------------
+# NVM
+# ----------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # ----------------------------------------------------------------------
 # CODE HIGHLIGHTING
